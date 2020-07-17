@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\GiaoTiepPC\bin\Debug\GiaoTiepPC.exe.config
+C:\Users\Admin\source\repos\GiaoTiepPC\bin\Debug\GiaoTiepPC.exe
+C:\Users\Admin\source\repos\GiaoTiepPC\bin\Debug\GiaoTiepPC.pdb
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.window.resources
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.Properties.Resources.resources
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.exe
+C:\Users\Admin\source\repos\GiaoTiepPC\obj\Debug\GiaoTiepPC.pdb
