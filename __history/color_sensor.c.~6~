@@ -108,15 +108,15 @@ void Write(long Goc, signed long t,int servo)
 void DC_motor_run()
 {
 
-   setup_timer_2(T2_DIV_BY_16,249,1);      //800 us overflow, 800 us interrupt
+   setup_timer_2(T2_DIV_BY_16,207,1);      //665 us overflow, 665 us interrupt
 
-   setup_ccp2(CCP_PWM);
-   set_pwm2_duty((int16)299);
-   output_bit(PIN_C3,0);
+   setup_ccp1(CCP_PWM);
+   set_pwm1_duty((int16)249);
+   output_bit(PIN_C2,0);
 }
 void DC_motor_off()
 {
-setup_ccp2(CCP_OFF);
+setup_ccp1(CCP_OFF);
 
 }
 void WriteBack()
