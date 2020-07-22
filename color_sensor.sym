@@ -1,0 +1,288 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+004-005 @MEMSET.P3
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     @INTERRUPT_AREA
+02C-02D strtok.save
+02E-031 _Randseed
+032     @TRIS_C
+033     has_product
+034     count_enable
+035     isFromButtonPressed
+036     done
+037     cycle
+038-03C data_received
+03D     c
+03E     has_red
+03F     has_blue
+040     has_green
+041     color_count
+042     red_count
+043     blue_count
+044     green_count
+045     blind_count
+046     red_product
+047     blue_product
+048     green_product
+049     sum
+04A     color_flag
+04B     on_off
+04C     speed_mode
+04D     freq_mode
+04E     sp_stop
+04F     time_stop
+050     is_running
+051-054 count
+055-058 red_freq
+059-05C blue_freq
+05D-060 green_freq
+061-062 Ton
+063-064 ChuKy
+065     @PRINTF_D_9600_62_63.P1
+065     lcd_init.i
+065-068 @FLT.P1
+065-066 Write.Goc
+065     TCS3200_getcolor.@SCRATCH1
+065     MAIN.@SCRATCH1
+065     @PSTRINGC7_920.@SCRATCH1
+066-069 lcd_init.LCD_INIT_STRING
+066     @PRINTF_D_9600_62_63.P1
+066     @PSTRINGC7_920.@SCRATCH2
+067-068 Write.t
+067     @PRINTF_D_9600_62_63.@SCRATCH1
+067     @PSTRINGC7_920.@SCRATCH3
+068     lcd_putc.c
+068     @PRINTF_D_9600_62_63.@SCRATCH2
+068     @PSTRINGC7_920.@SCRATCH4
+069     Write.servo
+069     lcd_gotoxy.x
+069-06C @FLT.P1
+069     @PRINTF_D_9600_62_63.@SCRATCH3
+06A-06B @DIVS1616.P1
+06A     lcd_gotoxy.y
+06A     @delay_ms1.P1
+06A-06B @ITOF.P2
+06A     lcd_init.@SCRATCH1
+06A     Write.@SCRATCH1
+06A     @PRINTF_D_9600_62_63.@SCRATCH4
+06B     lcd_gotoxy.address
+06B     @DIV88.P1
+06B     Write.@SCRATCH2
+06C     @DIV88.P1
+06C-06D @DIVS1616.P2
+06C-06D Delay4us.t
+06C     lcd_gotoxy.@SCRATCH1
+06C     Write.@SCRATCH3
+06D     lcd_send_byte.address
+06D     Write.@SCRATCH4
+06D     @DIV88.@SCRATCH1
+06D     @FLT.@SCRATCH1
+06E     lcd_send_byte.n
+06E-071 Convert.x
+06E     @DIVS1616.@SCRATCH1
+06E     @FLT.@SCRATCH2
+06F     lcd_read_byte.low
+06F     @DIVS1616.@SCRATCH2
+06F     lcd_send_byte.@SCRATCH1
+070     lcd_send_nibble.n
+070     lcd_read_byte.high
+071     lcd_read_nibble.n
+071     lcd_read_byte.@SCRATCH1
+072-075 Convert.in_min
+072     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+077     @MEMSET.P1
+078     @SCRATCH
+078     @MEMSET.P1
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B-07E Convert.in_max
+07F     @INTERRUPT_AREA
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0A3 Convert.out_min
+0A4-0A7 Convert.out_max
+0A8-0AB Convert.tam
+0AC-0AF @SFTOI.P1
+0AC     Convert.@SCRATCH1
+0AD     Convert.@SCRATCH2
+0AE     Convert.@SCRATCH3
+0AF     Convert.@SCRATCH4
+0B0-0B3 @DIVFF.P1
+0B0-0B3 @MULFF.P2
+0B4-0B7 @MULFF.P1
+0B4-0B7 @DIVFF.P2
+0B8     @MULFF.@SCRATCH1
+0B8     @DIVFF.@SCRATCH1
+0B9     @MULFF.@SCRATCH2
+0B9     @DIVFF.@SCRATCH2
+0BA     @MULFF.@SCRATCH3
+0BA     @DIVFF.@SCRATCH3
+0BB     @MULFF.@SCRATCH4
+0BB     @DIVFF.@SCRATCH4
+0BC     @MULFF.@SCRATCH5
+0BC     @DIVFF.@SCRATCH5
+0BD     @DIVFF.@SCRATCH6
+0C0-0C3 @ADDFF.P1
+0C0     get_data.i
+0C0-0C1 atoi.s
+0C0     TCS_mode.s2
+0C0     Stop.@SCRATCH1
+0C1     TCS_mode.s3
+0C1     get_data.@SCRATCH1
+0C2     atoi.result
+0C2     get_data.@SCRATCH2
+0C3     atoi.sign
+0C4     atoi.base
+0C4-0C7 @ADDFF.P1
+0C5     atoi.index
+0C6     atoi.c
+0C7     @MUL88.P1
+0C7     atoi.@SCRATCH1
+0C8     @MUL88.P1
+0C8     @ADDFF.@SCRATCH1
+0C8     atoi.@SCRATCH2
+0C9     @ADDFF.@SCRATCH2
+0CA     @ADDFF.@SCRATCH3
+0CB     @ADDFF.@SCRATCH4
+0CC     @ADDFF.@SCRATCH5
+0CD     @ADDFF.@SCRATCH6
+0CE     @ADDFF.@SCRATCH7
+0CF     @ADDFF.@SCRATCH8
+0FF     @INTERRUPT_AREA
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+000068  @ADDFF
+0001AE  EXT_isr
+0001D1  Stop
+0001DA  TCS_mode
+000207  TIMER1_isr
+000243  @goto12004
+00024B  atoi
+0002BA  @MUL88
+00034D  data_rec
+000353  @MEMSET
+00035B  get_data
+0003C1  @const1017.call
+0003C2  @const1019.call
+0003C7  @const1021.call
+0003C8  @const1022.call
+0003CF  @const1023.call
+0003D7  @const1024.call
+0003DF  @delay_ms1
+0003F3  lcd_send_nibble
+000429  lcd_read_nibble
+00045A  lcd_send_byte
+000466  lcd_read_byte
+0004C0  lcd_init
+00050C  lcd_gotoxy
+00051E  lcd_putc
+00054A  @PSTRINGC7_920
+0005A0  @DIV88
+0005B5  @PRINTF_D_9600_62_63
+000610  @FLT
+00064F  TCS3200_getcolor
+000770  Delay4us
+00077C  WriteBack
+000800  Write
+000804  @ITOF
+000848  Convert
+00089C  @DIVFF
+0009A7  @MULFF
+000A51  @SFTOI
+000A7C  @DIVS1616
+000B10  MAIN
+000B10  @cinit1
+000B34  @cinit2
+000CDC  @goto12157
+0136  StrtoulGO
+0136  StrtolGO
+
+Project Directory:
+    C:\Users\Admin\Desktop\DoAnXuLyTin\
+
+Project Files:
+    color_sensor.c                                          [23-Jul-20 01:23  CRC=1B4FDF74]
+    color_sensor.h                                          [24-May-20 22:41  CRC=0C6EB267]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h  [18-Apr-14 16:56  CRC=4F277C97]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h   [08-Jun-11 14:39  CRC=0B6669CF]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h   [16-Jul-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\string.h   [10-Apr-14 09:04  CRC=662B2714]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h    [03-Jan-08 13:55  CRC=2D1F019F]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c      [19-Sep-13 15:38  CRC=D1A6378A]
+
+Source signature=425FFC74
+
+Units:
+    color_sensor (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   color_sensor.xsym
+    Errors:      color_sensor.err
+    Ext Symbols: color_sensor.esym
+    INHX8:       color_sensor.hex
+    Symbols:     color_sensor.sym
+    List:        color_sensor.lst
+    Debug/COFF:  color_sensor.cof
+    Project:     color_sensor.ccspjt
+    Call Tree:   color_sensor.tre
+    Statistics:  color_sensor.STA

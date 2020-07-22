@@ -81,34 +81,23 @@ long Convert(float x, float in_min, float in_max, float out_min, float out_max)
    return tam;
 }
 
-void Write(long Goc, signed long t,int servo)
+void Write(long Goc, signed long t)
 {
    Ton = Convert(Goc,0,180, 247,1250);
    t=t/20;
    for(;t>0;t--)
    {
       // phat xung trong 20ms
-    if(servo==1)
-    {
       output_bit(PIN_D1,1);
       Delay4us(Ton);
       output_bit(PIN_D1,0);
       Delay4us(ChuKy-Ton);
-    }
-     if(servo==2)
-    {
-      output_bit(PIN_D0,1);
-      Delay4us(Ton);
-      output_bit(PIN_D0,0);
-      Delay4us(ChuKy-Ton);
-    }
    }
 }
 
 void WriteBack()
-{ 
+{  output_bit(PIN_D1,0);
    output_bit(PIN_D1,0);
-   output_bit(PIN_D0,0);
 }
 
 #INT_EXT
@@ -324,26 +313,19 @@ while (1){
            if(has_red)
             {
               if(!input_state(pin_E0))
-             {//servo1 
-               Write(120,1000,1);
-               Write(0,1000,1);
+             { Write(120,1000);
+               Write(0,1000);
                WriteBack();                
                has_red=0;
 
              }
-               
+               //servo1
             }
             
             if(has_blue)
              { 
              if(!input_state(pin_C2)){has_blue=0;}
-              //Oservo2
-              {
-               Write(120,1000,2);
-               Write(0,1000,2);
-               WriteBack();                
-               has_blue=0;
-              }
+              //servo2
              }
              if(has_green)
              {

@@ -1,0 +1,44 @@
+[PROJECT]
+Target=color_sensor.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=color_sensor.c
+[color_sensor.c]
+Type=4
+[mru-list]
+1=color_sensor.c
+
+[ProjectLog]
+Days=3
+D1=21-07-2020
+D1_L=4
+D1_L1=[52498]Project Opened.
+D1_L2=[52558]Project Closed.
+D1_L3=[52580]Project Opened.
+D1_L4=[62111]Project Closed.
+D2=22-07-2020
+D2_L=2
+D2_L1=[81881]Project Opened.
+D2_L2=[83351]Project Closed.
+D3=23-07-2020
+D3_L=6
+D3_L1=[3403]Project Opened.
+D3_L2=[3540]Started Editing.
+D3_L3=[4183]Stopped Editing.
+TotalEdit=6
+TotalDebug=0
+D3_E=6
+D3_D=0
+D3_L4=[5021]Project Closed.
+D3_L5=[5037]Project Opened.
+D3_L6=[5054]Project Closed.
+
+[Opened Files]
+1=color_sensor.c
+2=color_sensor.h
+3=
+[Units]
+Count=1
+1=color_sensor (main)

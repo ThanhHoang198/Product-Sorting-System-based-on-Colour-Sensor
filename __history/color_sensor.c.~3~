@@ -324,14 +324,13 @@ while (1){
            if(has_red)
             {
               if(!input_state(pin_E0))
-             {//servo1 
-               Write(120,1000,1);
+             { Write(120,1000,1);
                Write(0,1000,1);
                WriteBack();                
                has_red=0;
 
              }
-               
+               //servo1
             }
             
             if(has_blue)
@@ -342,7 +341,7 @@ while (1){
                Write(120,1000,2);
                Write(0,1000,2);
                WriteBack();                
-               has_blue=0;
+               has_red=0;
               }
              }
              if(has_green)
