@@ -1,7 +1,8 @@
-D G "__PCM__" 0 0 ""5.025""
-D G "__DEVICE__" 0 0 ""
-D G "__DATE__" 0 0 ""23-Jul-20""
-D G "__TIME__" 0 0 ""01:24:06"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "LCD_LINE_LENGTH" 7 187 "20"
+D G "__PCM__" 0 21 ""5.025""
+D G "__DEVICE__" 0 21 "877"
+D G "__DATE__" 0 21 ""23-Jul-20""
+D G "__TIME__" 0 21 ""02:21:41"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 37 "int8" `54 
 f B "set_tris_a" 2 37 "void(int8 value)" `53 
@@ -1306,14 +1307,17 @@ V L "t" 0 84 "sint16" `991
 V L "servo" 0 84 "int8" `992 
 F G "Write" 0 85 "void(int16 Goc,sint16 t,int8 servo)" `989 
 C L "Write" 0 37 1 "FUNCTION"
-F G "WriteBack" 0 109 "void()" `993 
-F G "EXT_isr" 0 116 "void()" `994 
-F G "Stop" 0 122 "void()" `995 
-F G "TIMER1_isr" 0 131 "void()" `996 
-F G "data_rec" 0 150 "void()" `998 
-F G "TCS3200_getcolor" 0 172 "int8()" `1003 
+F G "DC_motor_run" 0 109 "void()" `993 
+C L "DC_motor_run" 0 37 1 "FUNCTION"
+F G "DC_motor_off" 0 118 "void()" `994 
+F G "WriteBack" 0 123 "void()" `995 
+F G "EXT_isr" 0 130 "void()" `996 
+F G "Stop" 0 136 "void()" `997 
+F G "TIMER1_isr" 0 145 "void()" `998 
+F G "data_rec" 0 164 "void()" `1000 
+F G "TCS3200_getcolor" 0 186 "int8()" `1005 
 C L "TCS3200_getcolor" 0 37 3 "FUNCTION"
-F G "MAIN" 0 200 "void()" `1014 
+F G "MAIN" 0 214 "void()" `1016 
 C L "MAIN" 0 37 5 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"

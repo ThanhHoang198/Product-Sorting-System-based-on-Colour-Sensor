@@ -112,7 +112,7 @@ void DC_motor_run()
 
    setup_ccp1(CCP_PWM);
    set_pwm1_duty((int16)249);
-   output_bit(PIN_C2,0);
+   output_bit(PIN_C2,0)
 }
 void DC_motor_off()
 {
