@@ -1,8 +1,9 @@
-D G "LCD_LINE_LENGTH" 7 187 "20"
-D G "__PCM__" 0 21 ""5.025""
-D G "__DEVICE__" 0 21 "877"
-D G "__DATE__" 0 21 ""23-Jul-20""
-D G "__TIME__" 0 21 ""02:21:41"" "Standard Header file for the PIC16F877A device ////////////////"
+C L "MAIN" 0 37 1 "FUNCTION"
+C L "MAIN" 0 37 5 "FUNCTION"
+D G "__PCM__" 0 403 ""5.025""
+D G "__DEVICE__" 0 403 "877"
+D G "__DATE__" 0 403 ""23-Jul-20""
+D G "__TIME__" 0 403 ""15:40:16"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 37 "int8" `54 
 f B "set_tris_a" 2 37 "void(int8 value)" `53 
@@ -1291,35 +1292,36 @@ C L "Hien_thi" 0 37 1 "FUNCTION"
 V L "s2" 0 44 "int8" `974 
 V L "s3" 0 44 "int8" `975 
 F G "TCS_mode" 0 45 "void(int8 s2,int8 s3)" `973 
-F G "get_data" 0 59 "void()" `976 
-V L "i" 0 60 "int8" `977 
-V L "t" 0 71 "int16" `979 
-F G "Delay4us" 0 72 "void(int16 t)" `978 
-V L "x" 0 76 "float" `981 
-V L "in_min" 0 76 "float" `982 
-V L "in_max" 0 76 "float" `983 
-V L "out_min" 0 76 "float" `984 
-V L "out_max" 0 76 "float" `985 
-F G "Convert" 0 77 "int16(float x,float in_min,float in_max,float out_min,float out_max)" `980 
-V L "tam" 0 78 "float" `986 
-V L "Goc" 0 84 "int16" `990 
-V L "t" 0 84 "sint16" `991 
-V L "servo" 0 84 "int8" `992 
-F G "Write" 0 85 "void(int16 Goc,sint16 t,int8 servo)" `989 
+F G "get_data" 0 62 "void()" `976 
+V L "i" 0 63 "int8" `977 
+V L "t" 0 74 "int16" `979 
+F G "Delay4us" 0 75 "void(int16 t)" `978 
+V L "x" 0 79 "float" `981 
+V L "in_min" 0 79 "float" `982 
+V L "in_max" 0 79 "float" `983 
+V L "out_min" 0 79 "float" `984 
+V L "out_max" 0 79 "float" `985 
+F G "Convert" 0 80 "int16(float x,float in_min,float in_max,float out_min,float out_max)" `980 
+V L "tam" 0 81 "float" `986 
+V L "Goc" 0 87 "int16" `990 
+V L "t" 0 87 "sint16" `991 
+V L "servo" 0 87 "int8" `992 
+F G "Write" 0 88 "void(int16 Goc,sint16 t,int8 servo)" `989 
 C L "Write" 0 37 1 "FUNCTION"
-F G "DC_motor_run" 0 109 "void()" `993 
+F G "DC_motor_run" 0 112 "void()" `993 
 C L "DC_motor_run" 0 37 1 "FUNCTION"
-F G "DC_motor_off" 0 118 "void()" `994 
-F G "WriteBack" 0 123 "void()" `995 
-F G "EXT_isr" 0 130 "void()" `996 
-F G "Stop" 0 136 "void()" `997 
-F G "TIMER1_isr" 0 145 "void()" `998 
-F G "data_rec" 0 164 "void()" `1000 
-F G "TCS3200_getcolor" 0 186 "int8()" `1005 
+F G "DC_motor_off" 0 120 "void()" `994 
+F G "WriteBack" 0 125 "void()" `995 
+F G "EXT_isr" 0 132 "void()" `996 
+F G "Stop" 0 138 "void()" `997 
+F G "TIMER1_isr" 0 147 "void()" `998 
+F G "data_rec" 0 168 "void()" `1000 
+F G "TCS3200_getcolor" 0 190 "int8()" `1005 
 C L "TCS3200_getcolor" 0 37 3 "FUNCTION"
-F G "MAIN" 0 214 "void()" `1016 
-C L "MAIN" 0 37 5 "FUNCTION"
+F G "MAIN" 0 230 "void()" `1018 
 C L "MAIN" 0 37 1 "FUNCTION"
+C L "MAIN" 0 37 11 "FUNCTION"
+C L "MAIN" 0 37 5 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
 F B "reset_cpu" 0 0

@@ -3,15 +3,26 @@ Target=color_sensor.hex
 Processor_Text=PIC16F877A
 CCSVersion=5.025
 Compiler=PCM
+Development_Mode=
+ToolSuite=CCS
 [Target Data]
 FileList=color_sensor.c
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
 [color_sensor.c]
 Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
 [mru-list]
 1=color_sensor.c
 
 [ProjectLog]
-Days=3
+Days=4
 D1=21-07-2020
 D1_L=4
 D1_L1=[52498]Project Opened.
@@ -23,13 +34,13 @@ D2_L=2
 D2_L1=[81881]Project Opened.
 D2_L2=[83351]Project Closed.
 D3=23-07-2020
-D3_L=16
+D3_L=54
 D3_L1=[3403]Project Opened.
 D3_L2=[3540]Started Editing.
 D3_L3=[4183]Stopped Editing.
-TotalEdit=16
+TotalEdit=111
 TotalDebug=0
-D3_E=16
+D3_E=107
 D3_D=0
 D3_L4=[5021]Project Closed.
 D3_L5=[5037]Project Opened.
@@ -44,14 +55,105 @@ D3_L13=[8514]Stopped Editing.
 D3_L14=[8514]Project Closed.
 D3_L15=[8799]Project Opened.
 D3_L16=[8805]Project Closed.
+D3_L17=[35624]Project Opened.
+D3_L18=[36102]Started Editing.
+D3_L19=[36437]Stopped Editing.
+D3_L20=[37190]Started Editing.
+D3_L21=[37856]Stopped Editing.
+D3_L22=[37973]Started Editing.
+D3_L23=[38282]Stopped Editing.
+D3_L24=[38560]Project Closed.
+D3_L25=[40036]Project Opened.
+D3_L26=[40368]Project Closed.
+D3_L27=[40836]Project Opened.
+D3_L28=[40879]Started Editing.
+D3_L29=[41411]Stopped Editing.
+D3_L30=[41640]Started Editing.
+D3_L31=[42074]Stopped Editing.
+D3_L32=[42112]Started Editing.
+D3_L33=[43033]Stopped Editing.
+D3_L34=[43316]Started Editing.
+D3_L35=[44646]Stopped Editing.
+D3_L36=[45688]Project Closed.
+D3_L37=[50630]Project Opened.
+D3_L38=[50712]Started Editing.
+D3_L39=[51013]Stopped Editing.
+D3_L40=[51044]Started Editing.
+D3_L41=[51726]Stopped Editing.
+D3_L42=[52685]Project Closed.
+D3_L43=[52816]Project Opened.
+D3_L44=[52936]Started Editing.
+D3_L45=[54272]Stopped Editing.
+D3_L46=[54520]Started Editing.
+D3_L47=[54820]Stopped Editing.
+D3_L48=[54918]Started Editing.
+D3_L49=[56712]Stopped Editing.
+D3_L50=[79679]Started Editing.
+D3_L51=[79979]Stopped Editing.
+D3_L52=[84748]Project Closed.
+D3_L53=[85522]Project Opened.
+D3_L54=[86360]Started Editing.
+D4=24-07-2020
+D4_L=14
+D4_L1=[86]Stopped Editing.
+D4_E=4
+D4_D=0
+D4_L2=[86]Project Closed.
+D4_L3=[4401]Project Opened.
+D4_L4=[5404]Project Closed.
+D4_L5=[6246]Project Opened.
+D4_L6=[6523]Project Closed.
+D4_L7=[49004]Project Opened.
+D4_L8=[49046]Started Editing.
+D4_L9=[49049]Stopped Editing.
+D4_L10=[49049]Project Closed.
+D4_L11=[49056]Project Opened.
+D4_L12=[49112]Project Closed.
+D4_L13=[49112]Project Opened.
+D4_L14=[49157]Project Closed.
 
 [Opened Files]
 1=color_sensor.c
-2=..\..\Documents\pwm.c
-3=..\..\Documents\pwm.h
-4=..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+2=color_sensor.h
+3=..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+4=
 5=color_sensor.h
 6=
+
+[Directories]
+Include=
+Library=
+LinkerScript=
+output=
+
+[defines]
+enabled=0
+chip=1
+D1=
+V1=
+
+[fileformats]
+forcecoff=1
+debug=4
+error=2
+object=0
+list=0
+scratch=0
+sta=1
+tre=1
+expandtree=0
+allerrors=1
+allwarnings=1
+stayupne=3
+stayupoe=0
+
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+
+[CompilerVersion]
+Fixed=
 [Units]
 Count=1
-1=color_sensor (main)
+1=color_sensor (1).c
+2=color_sensor (1).c
+Link=0

@@ -1,5 +1,5 @@
->>> Warning 203 "color_sensor.c" Line 223(1,1): Condition always TRUE
->>> Warning 216 "color_sensor.c" Line 381(1,2): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
-      Memory usage:   ROM=39%      RAM=20% - 39%
+>>> Warning 203 "color_sensor.c" Line 240(1,1): Condition always TRUE
+>>> Warning 216 "color_sensor.c" Line 401(1,2): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
+      Memory usage:   ROM=40%      RAM=20% - 39%
       0 Errors,  2 Warnings.
 Build Successful.

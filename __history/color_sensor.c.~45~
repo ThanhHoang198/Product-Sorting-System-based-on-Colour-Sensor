@@ -162,7 +162,7 @@ void  TIMER1_isr(void)
 #INT_RDA
 void data_rec()
 {
-
+    output_bit(pin_c5,1);
    memset(&data_received[0],0,sizeof(data_received));
    get_data();
    on_off=atoi(&data_received[0]);
@@ -183,17 +183,29 @@ void data_rec()
 
 }
 unsigned char TCS3200_getcolor()
-{ done=0;
+{        
+     
+done=0;
   setup_timer_1(T1_internal | T1_div_by_8);
   set_timer1(3036);
   
   while(!done){};
+     output_bit(pin_c5,0);
+         lcd_putc("\f");
+            lcd_putc("RD   BL  GR ");
+            lcd_gotoxy(1,2);
+            lcd_putc(red_freq+0x30);
+            lcd_gotoxy(5,2);
+            lcd_putc(blue_freq+0x30);
+            lcd_gotoxy(9,2);
+            lcd_putc(green_freq+0x30); 
+           
            /*red_freq= Map(red_freq,500,1650,0,255);
            blue_freq= Map(blue_freq,600,1600,0,255);
            green_freq= Map(green_freq,400,1000,0,255);*/
            cycle++;    
            sum=red_product+blue_product+green_product;
-           printf("%d|%d|%d|%d\r\n",red_product,blue_product,green_product,sum);
+          printf("%d|%d|%d|%d\r\n",red_product,blue_product,green_product,sum);
            
             
   if (((red_freq < 150) && (blue_freq < 150)) || ((green_freq < 150) && (blue_freq < 150)) || ((red_freq < 150) && (green_freq < 150)))
@@ -221,15 +233,17 @@ void main()
    set_tris_b(0x31);
 
 while (1){
-   
+      
       if(Input(Pin_B4)==0)
       {      
-         isFromButtonPressed=1;     
+         isFromButtonPressed=1; 
       }     
      
-      if ((on_off==ON_) && !is_running)        
-          {  is_running=1;
-             DC_motor_run();
+      if ( !is_running)        
+          { 
+            
+            is_running=1;
+             //DC_motor_run();
              count_enable = 1;
              switch(freq_mode)
              {
@@ -261,7 +275,9 @@ while (1){
       }
       
       if (count_enable)
-      {            
+      {       
+      lcd_gotoxy(1,1);
+            lcd_putc("    MACH DEM SP");
             switch(TCS3200_getColor())
             {
             case COLOR_RED :
@@ -327,7 +343,7 @@ while (1){
                
             }
        
-            lcd_putc("\f");
+               lcd_putc("\f");
             lcd_putc("RD   BL  GR ");
             lcd_gotoxy(1,2);
             lcd_putc(red_product+0x30);
@@ -336,7 +352,7 @@ while (1){
             lcd_gotoxy(9,2);
             lcd_putc(green_product+0x30); 
             lcd_gotoxy(4,1);
-            lcd_putc(input_state(pin_C2)+0x30);
+            lcd_putc(input_state(pin_C2)+0x30);  
            if(has_red)
             {
               if(!input_state(pin_E0))
@@ -368,14 +384,14 @@ while (1){
                      
      //LCD
       }
-      else
+   /*   else
       {     
             lcd_gotoxy(1,1);
             lcd_putc("    MACH DEM SP");
             lcd_gotoxy(1,2);
             lcd_putc("  CAM BIEN MAU");
       }
-      
+      */
 }
 
 }

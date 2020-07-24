@@ -1,9 +1,9 @@
 
-ROM used:   3220/8192 (39%)
-            3307/8192 (40%) including unused fragments
+ROM used:   3292/8192 (40%)
+            3315/8192 (40%) including unused fragments
 
             1.0 Average locations per line
-            4.7 Average locations per statement
+            4.9 Average locations per statement
 
 RAM used:   75/368 (20%) at main() level
             144/368 (39%) worst case
@@ -13,16 +13,16 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  382   222  33  color_sensor.c
+  402   212  32  color_sensor.c
    23     0   0  color_sensor.h
   672     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
- 1351   359  53  ..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
+ 1351   359  54  ..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
    32     0   0  ..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
   423     0   0  ..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
    28     0   0  ..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
   456   100  15  ..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 3367   681 Total
+ 3387   671 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -35,7 +35,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0    258   8    9   1815 10.5  atoi
 0     20   1    1             @delay_ms1
  Inline         3    760  4.5  lcd_read_byte
-0     49   2    2    262  3.7  lcd_read_nibble
+0     49   1    2    262  3.7  lcd_read_nibble
 0     54   2    1    399  2.4  lcd_send_nibble
 0    102   3    3    415  3.7  lcd_send_byte
 0     76   2    6    852  6.2  lcd_init
@@ -45,50 +45,45 @@ Page ROM  %  RAM    Vol Diff  Functions:
  Inline         3    249  5.5  get_data
 0     12   0    2     44  2.1  Delay4us
  Inline        28    231  6.0  Convert
- Inline         4             @SFTOI
-1    784  24    9    571  5.9  Write
-0     31   1    0    108  1.7  DC_motor_run
-0      5   0    0     17  0.8  DC_motor_off
+0     33   1    4             @SFTOI
+1    757  23    9    571  5.9  Write
 0      9   0    0     50  1.5  WriteBack
 0     35   1    0     31  1.7  EXT_isr
 0      9   0    1     52  2.1  Stop
-0     60   2    0    323  4.2  TIMER1_isr
-0      8   0    0             @goto12013
+0     66   2    0    362  4.2  TIMER1_isr
+0      8   0    0             @goto12014
 0    116   4    0    639  5.7  data_rec
  Inline         0             @MEMSET
-0    289   9    1    776  8.0  TCS3200_getcolor
+1    510  15    1   1130  8.2  TCS3200_getcolor
+0      7   0    0             @const1006
+0     86   3    4             @PSTRINGC7_920
 0     21   1    3             @DIV88
 0     91   3    6             @PRINTF_D_9600_62_63
 0     63   2   10             @FLT
-1    467  15    1   4220  9.4  MAIN
-0      1   0    0             @const1019
-0     86   3    4             @PSTRINGC7_920
-0      5   0    0             @const1021
-1      8   0    0             @goto12166
-0      1   0    0             @const1023
-0      7   0    0             @const1024
-0      8   0    0             @const1025
-0      8   0    0             @const1026
+0    357  11    1   3336  9.3  MAIN
+0      8   0    0   3943  9.4  @goto12153
+0      1   0    0             @const1022
+0      7   0    0             @const1023
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               22
-    Statements              681
-    Comments                767
-    Volume (V)              20114
-    Difficulty (D)          99.9
-    Effort to implement (E) 2008689
-    Time to implement (T)   31 hours, 0 minutes
-    Est Delivered Bugs (B)  5
-    Cyclomatic Complexity   62
-    Maintainability (MI)    93
+    Functions               21
+    Statements              671
+    Comments                791
+    Volume (V)              24973
+    Difficulty (D)          106.9
+    Effort to implement (E) 2669033
+    Time to implement (T)   41 hours, 11 minutes
+    Est Delivered Bugs (B)  6
+    Cyclomatic Complexity   84
+    Maintainability (MI)    73
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00067   100  0  
-00068-007FF  1857  87  
-00800-00FFF  1259  789  
+00068-007FF  1921  23  
+00800-00FFF  1267  781  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

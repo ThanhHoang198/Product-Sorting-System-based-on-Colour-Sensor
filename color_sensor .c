@@ -11,7 +11,7 @@
 #define COLOR_RED       1
 #define COLOR_BLUE      2
 #define COLOR_GREEN     3
-#define COLOR_COUNT_MAX     4
+#define COLOR_COUNT_MAX     5
 #define LOW_   1
 #define MEDIUM    2
 #define HIGH_   3
@@ -20,9 +20,9 @@
 #include<lcd.c>
 unsigned char has_product = 0, count_enable = 0, isFromButtonPressed = 0,done=0,cycle,data_received[5],c,has_red,has_blue,has_green;
 int color_count = 0, red_count = 0, blue_count = 0, green_count = 0, blind_count = 0;
-unsigned int red_product = 0, blue_product = 0, green_product = 0,sum; 
-int color_flag,on_off,speed_mode,freq_mode,sp_stop,time_stop,is_running;
-static  float  count, red_freq, blue_freq, green_freq;
+unsigned int red_product = 0, blue_product = 0, green_product = 0,sum=0; 
+int color_flag=0, on_off=2, speed_mode, freq_mode=2, sp_stop, time_stop, is_running=0,isFromButtonStop=0;
+static  float  count, red_freq=0.0, blue_freq=0.0, green_freq=0.0;
 int16 Ton, ChuKy=10000;
 float Map(float x, float in_min, float in_max, float out_min, float out_max)
 {
@@ -47,7 +47,7 @@ void TCS_mode(int8 s2, int8 s3)
    color_flag++;
    OUTPUT_BIT(S_2,s2);
    OUTPUT_BIT(S_3,s3);
-   set_timer1(3036);
+   set_timer1(34286);
    if(color_flag==4)
       {
        color_flag=0;
@@ -81,23 +81,48 @@ long Convert(float x, float in_min, float in_max, float out_min, float out_max)
    return tam;
 }
 
-void Write(long Goc, signed long t)
+void Write(long Goc, signed long t,int servo)
 {
    Ton = Convert(Goc,0,180, 247,1250);
    t=t/20;
    for(;t>0;t--)
    {
       // phat xung trong 20ms
+    if(servo==1)
+    {
       output_bit(PIN_D1,1);
       Delay4us(Ton);
       output_bit(PIN_D1,0);
       Delay4us(ChuKy-Ton);
+    }
+     if(servo==2)
+    {
+      output_bit(PIN_D0,1);
+      Delay4us(Ton);
+      output_bit(PIN_D0,0);
+      Delay4us(ChuKy-Ton);
+    }
    }
 }
 
+void DC_motor_run()
+{
+
+   setup_timer_2(T2_DIV_BY_16,249,1);      //800 us overflow, 800 us interrupt
+
+   setup_ccp2(CCP_PWM);
+   set_pwm2_duty((int16)299);
+   output_bit(PIN_C3,0);
+}
+void DC_motor_off()
+{
+setup_ccp2(CCP_OFF);
+ output_bit(PIN_C1,0);
+}
 void WriteBack()
-{  output_bit(PIN_D1,0);
+{ 
    output_bit(PIN_D1,0);
+   output_bit(PIN_D0,0);
 }
 
 #INT_EXT
@@ -111,7 +136,7 @@ void Stop()
 {
    if(Input(Pin_B5)==0)
       {  
-         isFromButtonPressed=0;     
+         isFromButtonStop=1; 
       }
 }
 
@@ -160,18 +185,20 @@ void data_rec()
 unsigned char TCS3200_getcolor()
 { done=0;
   setup_timer_1(T1_internal | T1_div_by_8);
-  set_timer1(3036);
+  set_timer1(34286);
   
   while(!done){};
-           /*red_freq= Map(red_freq,500,1650,0,255);
-           blue_freq= Map(blue_freq,600,1600,0,255);
-           green_freq= Map(green_freq,400,1000,0,255);*/
-           cycle++;    
-           sum=red_product+blue_product+green_product;
-           printf("%d|%d|%d|%d\r\n",red_product,blue_product,green_product,sum);
-           
+ 
+//!  
+           //red_freq= Map(red_freq,500,1650,0,255);
+           //blue_freq= Map(blue_freq,600,1600,0,255);
+           //green_freq= Map(green_freq,400,1000,0,255);
+       
+          // sum=red_product+blue_product+green_product;
+       //   printf("%f|%f|%f|%d\r\n",red_freq,blue_freq,green_freq,sum);  
+  
             
-  if (((red_freq < 150) && (blue_freq < 150)) || ((green_freq < 150) && (blue_freq < 150)) || ((red_freq < 150) && (green_freq < 150)))
+  if (((red_freq < 100) && (blue_freq < 100)) || ((green_freq < 100) && (blue_freq < 100)) || ((red_freq < 100) && (green_freq < 100)))
         return UNIDENTIFIED;
   else
     {
@@ -195,15 +222,19 @@ void main()
    enable_interrupts(GLOBAL);
    set_tris_b(0x31);
 
-while (1){
+while (1)
+{
    
       if(Input(Pin_B4)==0)
       {      
          isFromButtonPressed=1;     
       }     
      
-      if ((on_off==ON_) && !is_running)        
-          { is_running=1;
+      if (  ((on_off==ON_)&&(!is_running) )||(isFromButtonPressed&&!is_running)) 
+          {  isFromButtonPressed=0;
+             is_running=1;
+             on_off=2;
+             DC_motor_run();
              count_enable = 1;
              switch(freq_mode)
              {
@@ -219,9 +250,12 @@ while (1){
              }         
           }
                     
-      else if ((on_off==OFF_)&&is_running)
-      {     is_running=0;
+      else if (((on_off==OFF_)&&is_running)||(isFromButtonStop&&is_running))
+      {  isFromButtonStop=0;     
+      is_running=0;
+      on_off=2;
             count_enable = 0;
+            DC_motor_off();
             color_count = red_count = blue_count = green_count = blind_count = 0;
             red_product = blue_product = green_product = 0;
             has_product = 0;
@@ -232,7 +266,7 @@ while (1){
                delay_ms(500);
             }
       }
-      
+    
       if (count_enable)
       {            
             switch(TCS3200_getColor())
@@ -288,6 +322,11 @@ while (1){
                     {
 
                     }
+                    
+           sum=red_product+blue_product+green_product;
+           // printf("%d|%d|%d|%d\r\n",red_count,blue_count,green_count,sum);  
+  
+          printf("%d|%d|%d|%d\r\n",red_product,blue_product,green_product,sum);
                 }
                 else
                 {
@@ -301,31 +340,43 @@ while (1){
             }
        
             lcd_putc("\f");
-            lcd_putc("RD   BL  GR ");
+            lcd_putc("RD   BL  GR  SUM");
             lcd_gotoxy(1,2);
             lcd_putc(red_product+0x30);
             lcd_gotoxy(5,2);
             lcd_putc(blue_product+0x30);
             lcd_gotoxy(9,2);
             lcd_putc(green_product+0x30); 
-            lcd_gotoxy(4,1);
-            lcd_putc(input_state(pin_C2)+0x30);
+            lcd_gotoxy(14,2);
+            lcd_putc(sum+0x30);
+
+            
+   
            if(has_red)
             {
               if(!input_state(pin_E0))
-             { Write(120,1000);
-               Write(0,1000);
-               WriteBack();                
+             {//servo1 
+              delay_ms(500);
+               Write(120,1000,1);
+               Write(0,1000,1);
+               WriteBack();   
+              
                has_red=0;
 
              }
-               //servo1
+               
             }
             
             if(has_blue)
              { 
-             if(!input_state(pin_C2)){has_blue=0;}
-              //servo2
+             if(!input_state(pin_C2) )
+              //Oservo2
+              {delay_ms(500);
+               Write(180,1000,2);
+               Write(0,1000,2);
+               WriteBack();                
+               has_blue=0;
+              }
              }
              if(has_green)
              {
